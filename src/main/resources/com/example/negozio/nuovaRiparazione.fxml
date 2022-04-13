@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="550.0" prefWidth="450.0"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.negozio.nuovaRiparazioneController">
+   <children>
+      <ImageView fitHeight="550.0" fitWidth="450.0">
+         <image>
+            <Image url="@../../../resources/backgroundPrenotazione.png" />
+         </image>
+      </ImageView>
+      <VBox prefHeight="550.0" prefWidth="450.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="152.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resources/2.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets top="30.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="68.0" prefWidth="450.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="84.0" prefWidth="317.0" text="NUOVA RIPARAZIONE" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Gill Sans MT Ext Condensed Bold" size="60.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <GridPane alignment="CENTER" prefHeight="214.0" prefWidth="450.0">
+               <children>
+                  <Label prefHeight="28.0" prefWidth="108.0" text="Codice Fiscale:">
+                     <font>
+                        <Font name="Gill Sans MT Condensed" size="23.0" />
+                     </font>
+                     <padding>
+                        <Insets right="5.0" />
+                     </padding>
+                  </Label>
+                  <Label prefHeight="34.0" prefWidth="56.0" text="Nome:" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Gill Sans MT Condensed" size="23.0" />
+                     </font>
+                     <padding>
+                        <Insets right="5.0" />
+                     </padding>
+                  </Label>
+                  <Label text="Cognome:" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Gill Sans MT Condensed" size="23.0" />
+                     </font>
+                     <padding>
+                        <Insets right="5.0" />
+                     </padding>
+                  </Label>
+                  <Label text="Email:" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Gill Sans MT Condensed" size="23.0" />
+                     </font>
+                     <padding>
+                        <Insets right="5.0" />
+                     </padding>
+                  </Label>
+                  <Label text="Password:" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Gill Sans MT Condensed" size="23.0" />
+                     </font>
+                     <padding>
+                        <Insets right="5.0" />
+                     </padding>
+                  </Label>
+                  <Label text="Cellulare:" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Gill Sans MT Condensed" size="23.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <TextField fx:id="cognomeCliente" prefHeight="17.0" prefWidth="203.0" promptText="Inserisci Cognome" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="emailCliente" prefHeight="31.0" prefWidth="207.0" promptText="Inserisci Email" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="cellCliente" prefHeight="31.0" prefWidth="207.0" promptText="Inserisci Cellulare" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                  </TextField>
+                  <PasswordField fx:id="passwordCliente" prefHeight="58.0" prefWidth="240.0" promptText="Inserisci Password" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                  </PasswordField>
+                  <TextField fx:id="nomeCliente" prefHeight="18.0" prefWidth="223.0" promptText="Inserisci Nome" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="cfCliente" prefHeight="18.0" prefWidth="223.0" promptText="Inserisci Codice Fiscale" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="219.0" minWidth="10.0" prefWidth="127.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.0" minWidth="10.0" prefWidth="223.0" />
+               </columnConstraints>
+               <padding>
+                  <Insets left="50.0" right="50.0" />
+               </padding>
+               <rowConstraints>
+                  <RowConstraints maxHeight="34.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="34.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="34.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="34.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="34.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="34.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <HBox alignment="CENTER" prefHeight="12.0" prefWidth="450.0">
+               <children>
+                  <Label fx:id="loginCliente" onMouseClicked="#loginCliente" text="Login con il mio account" textFill="#8155e0" underline="true">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="32.0" prefWidth="450.0">
+               <children>
+                  <Button fx:id="backButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleBackButton" text="Indietro">
+                     <font>
+                        <Font name="Gill Sans MT Condensed" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="250.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="avantiButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#handleNuovaRiparazione" text="Avanti">
+                     <font>
+                        <Font name="Gill Sans MT Condensed" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

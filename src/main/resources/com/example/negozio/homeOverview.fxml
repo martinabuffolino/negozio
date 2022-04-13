@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="550.0" prefWidth="450.0"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.negozio.homeOverviewController">
+   <children>
+      <ImageView fitHeight="550.0" fitWidth="450.0">
+         <image>
+            <Image url="@../../../resources/backgroundLoginTecnico.png" />
+         </image>
+      </ImageView>
+      <VBox prefHeight="550.0" prefWidth="450.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="81.0" prefWidth="429.0">
+               <children>
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="113.0" prefWidth="260.0" text="MSM TECH" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Gill Sans MT Ext Condensed Bold" size="50.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="20.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="136.0" prefWidth="450.0">
+               <children>
+                  <ImageView fitHeight="144.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resources/1.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="130.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Button fx:id="feedbackButton" contentDisplay="CENTER" mnemonicParsing="false" text="FEEDBACK" textAlignment="CENTER">
+                     <font>
+                        <Font name="Gill Sans MT Condensed" size="22.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" top="50.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <VBox prefHeight="276.0" prefWidth="450.0">
+               <children>
+                  <RadioButton fx:id="nuovaRiparazioneRadioButton" mnemonicParsing="false" text="CREA NUOVA RIPARAZIONE">
+                     <font>
+                        <Font name="Gill Sans MT" size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" right="5.0" />
+                     </padding>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="modalitaAccesso" />
+                     </toggleGroup>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="30.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="controlloRiparazioneRadioButton" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="27.0" prefWidth="418.0" text="CONTROLLA STATO RIPARAZIONE" toggleGroup="$modalitaAccesso">
+                     <font>
+                        <Font name="Gill Sans MT" size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" right="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="acquistoRadioButton" mnemonicParsing="false" text="CATALOGO ACCESSORI" toggleGroup="$modalitaAccesso">
+                     <font>
+                        <Font name="Gill Sans MT" size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" right="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="tecnicoRadioButton" mnemonicParsing="false" text="LOGIN TECNICO" toggleGroup="$modalitaAccesso">
+                     <font>
+                        <Font name="Gill Sans MT" size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" right="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="50.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <HBox alignment="CENTER" prefHeight="46.0" prefWidth="450.0">
+                     <children>
+                        <Button fx:id="avantiButton" mnemonicParsing="false" onAction="#handleAvanti" prefHeight="40.0" prefWidth="76.0" text="AVANTI">
+                           <font>
+                              <Font name="Gill Sans MT Condensed" size="21.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="310.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="664d9bf3-6e3b-45ab-9e88-736f144d4fae" name="NegozioDB MySql Mapping">
+      <data-sources db="1d6ea878-328f-4294-a24f-e683001767d8" ddl="e84fed53-45b4-4c56-bad0-d1a6d7677974" />
+    </mapping>
+  </component>
+</project>
