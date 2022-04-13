@@ -25,7 +25,7 @@ import strategy.pattern.Accessori;
    la lista di prodotti selezionati
  */
 
-public class carelloController {
+public class carrelloController {
     @FXML
     private ResourceBundle resources;
 
@@ -64,6 +64,9 @@ public class carelloController {
 
     @FXML
     private ObservableList<Accessori> selected;
+
+    public carrelloController(ObservableList<Accessori> selected) {
+    }
 
     public void carrelloController(ObservableList<Accessori> x)
     {

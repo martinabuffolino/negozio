@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.negozio.infoRicevutaController">
+   <children>
+      <ImageView fitHeight="550.0" fitWidth="450.0">
+         <image>
+            <Image url="@../../../resources/backgroundRiparazione.png" />
+         </image>
+      </ImageView>
+      <VBox prefHeight="550.0" prefWidth="450.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="93.0" prefWidth="411.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="158.0" text="RICEVUTA" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Gill Sans MT Ext Condensed Bold" size="60.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="50.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <GridPane alignment="CENTER_LEFT" minHeight="296.0" prefHeight="367.0" prefWidth="450.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="100.0" prefHeight="31.0" prefWidth="134.0" text="Codice ricevuta:">
+                     <font>
+                        <Font name="Gill Sans MT Condensed" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="134.0" text="Info Smartphone" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Gill Sans MT Condensed" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="100.0" prefHeight="31.0" prefWidth="132.0" text="Info Tecnico:" GridPane.rowIndex="6">
+                     <font>
+                        <Font name="Gill Sans MT Condensed" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="138.0" prefHeight="31.0" prefWidth="140.0" text="Info Riparazione:" GridPane.rowIndex="9">
+                     <font>
+                        <Font name="Gill Sans MT Condensed" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="codiceRicevuta" alignment="TOP_LEFT" prefHeight="21.0" prefWidth="200.0" text="codice ricevuta" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Gill Sans MT Italic" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="serialeSmartphone" alignment="TOP_LEFT" layoutX="186.0" layoutY="42.0" prefHeight="21.0" prefWidth="196.0" text="seriale" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Gill Sans MT Italic" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="tipoRip" alignment="TOP_LEFT" layoutX="186.0" layoutY="118.0" prefHeight="21.0" prefWidth="202.0" text="tipo" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                     <font>
+                        <Font name="Gill Sans MT Italic" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="costoRip" alignment="TOP_LEFT" layoutX="186.0" layoutY="156.0" prefHeight="21.0" prefWidth="193.0" text="costo" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                     <font>
+                        <Font name="Gill Sans MT Italic" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="statoSmartphone" alignment="TOP_LEFT" prefHeight="21.0" prefWidth="196.0" text="stato" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                     <font>
+                        <Font name="Gill Sans MT Italic" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="coloreSmartphone" prefHeight="21.0" prefWidth="201.0" text="colore" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Gill Sans MT Italic" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="nomeTec" prefHeight="21.0" prefWidth="198.0" text="nome" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <font>
+                        <Font name="Gill Sans MT Italic" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="cognomeTec" prefHeight="21.0" prefWidth="202.0" text="cognome" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <font>
+                        <Font name="Gill Sans MT Italic" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="modelloSmartphone" prefHeight="21.0" prefWidth="196.0" text="modello" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Gill Sans MT Italic" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="codRip" alignment="TOP_LEFT" prefHeight="21.0" prefWidth="202.0" text="codice riparazione" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                     <font>
+                        <Font name="Gill Sans MT Italic" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label layoutX="204.0" layoutY="60.0" prefHeight="21.0" prefWidth="196.0" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Gill Sans MT Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="21.0" prefWidth="196.0">
+                     <font>
+                        <Font name="Gill Sans MT Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="21.0" prefWidth="196.0">
+                     <font>
+                        <Font name="Gill Sans MT Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="140.0" GridPane.rowIndex="9">
+                     <font>
+                        <Font name="Gill Sans MT Condensed" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="10.0" prefWidth="139.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.0" minWidth="10.0" prefWidth="211.0" />
+               </columnConstraints>
+               <padding>
+                  <Insets left="50.0" right="50.0" />
+               </padding>
+               <rowConstraints>
+                  <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="38.0" minHeight="20.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+            </GridPane>
+            <HBox alignment="CENTER" prefHeight="95.0" prefWidth="450.0">
+               <children>
+                  <Button fx:id="backButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleBackButton" text="Indietro">
+                     <font>
+                        <Font name="Gill Sans MT Condensed" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="250.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="avantiButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#handleAvanti" text="Paga">
+                     <font>
+                        <Font name="Gill Sans MT Condensed" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

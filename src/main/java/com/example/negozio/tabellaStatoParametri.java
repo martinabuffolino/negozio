@@ -20,34 +20,42 @@ public class tabellaStatoParametri {
     }
 
     public void setCodRiparazione(String codRiparazione) {
+
         this.codRiparazione = codRiparazione;
     }
 
     public String getCodRiparazione() {
+
         return codRiparazione;
     }
 
     public void setTipoRiparazione(String tipoRiparazione) {
+
         this.tipoRiparazione = tipoRiparazione;
     }
 
     public String getTipoRiparazione() {
+
         return tipoRiparazione;
     }
 
     public void setStatoRiparazione(String statoRiparazione) {
+
         this.statoRiparazione = statoRiparazione;
     }
 
     public String getStatoRiparazione() {
+
         return statoRiparazione;
     }
 
     public void setSerialeSmartphone(String serialeSmartphone) {
+
         this.serialeSmartphone = serialeSmartphone;
     }
 
     public String getSerialeSmartphone() {
+
         return serialeSmartphone;
     }
 }
