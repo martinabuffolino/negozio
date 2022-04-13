@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="550.0" prefWidth="450.0"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.negozio.registrazioneSmartphoneController">
+   <children>
+      <ImageView fitHeight="550.0" fitWidth="450.0">
+         <image>
+            <Image url="@../../../resources/backgroundRiparazione.png" />
+         </image>
+      </ImageView>
+      <VBox prefHeight="550.0" prefWidth="450.0">
+         <children>
+            <HBox prefHeight="73.0" prefWidth="450.0">
+               <children>
+                  <ImageView fitHeight="62.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resources/2.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="92.0" prefWidth="450.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="37.0" prefWidth="396.0" text="Registrazione smartphone" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Gill Sans MT Condensed" size="40.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <GridPane alignment="CENTER" prefHeight="352.0" prefWidth="450.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefHeight="21.0" prefWidth="98.0" text="Modello:" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Gill Sans MT Condensed" size="23.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" layoutX="100.0" layoutY="17.0" prefHeight="21.0" prefWidth="99.0" text="Seriale:" textAlignment="RIGHT">
+                     <font>
+                        <Font name="Gill Sans MT Condensed" size="23.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="99.0" text="Colore:" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Gill Sans MT Condensed" size="23.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="colore" prefHeight="31.0" prefWidth="138.0" promptText="Inserisci Colore" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="modello" prefHeight="31.0" prefWidth="138.0" promptText="Inserisci Modello" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="seriale" prefHeight="31.0" prefWidth="138.0" promptText="Inserisci Seriale" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marca" prefHeight="31.0" prefWidth="138.0" promptText="Inserisci Marca" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                  </TextField>
+                  <Label alignment="CENTER_RIGHT" prefHeight="21.0" prefWidth="99.0" text="Marca:" textAlignment="RIGHT" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Gill Sans MT Condensed" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="140.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.0" minWidth="10.0" prefWidth="204.0" />
+               </columnConstraints>
+               <padding>
+                  <Insets left="90.0" right="90.0" />
+               </padding>
+               <rowConstraints>
+                  <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <HBox alignment="CENTER" prefHeight="181.0" prefWidth="450.0">
+               <children>
+                  <Button fx:id="backButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleBackButton" text="Indietro">
+                     <font>
+                        <Font name="Gill Sans MT Condensed" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="250.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="avantiButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#handleRegistra" text="Avanti">
+                     <font>
+                        <Font name="Gill Sans MT Condensed" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

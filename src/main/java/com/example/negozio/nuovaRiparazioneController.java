@@ -149,7 +149,7 @@ public class nuovaRiparazioneController {
         System.out.println("Username=" + usernamePassword.getKey() + ", Password=" + usernamePassword.getValue());
 
         if (checkLoginCliente(usernamePassword.getKey(),usernamePassword.getValue())){
-            System.out.println("Login Eseguito");
+            System.out.println("Login eseguito");
 
             try {
 
@@ -211,18 +211,18 @@ public class nuovaRiparazioneController {
                     System.out.println("Password Esatta");
                 } else {
                     System.out.println("Password Errata");
-                    //Pop up password errata
                     Alert alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setContentText("PASSWORD ERRATA");
+                    alert.setTitle("ERRORE");
+                    alert.setContentText("Password errata");
                     alert.showAndWait();
                     return false;
                 }
 
             } else {
                 System.out.println("Email Errata");
-                //pop up email errata
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("EMAIL ERRATA");
+                alert.setTitle("ERRORE");
+                alert.setContentText("Email Errata");
                 alert.showAndWait();
                 return false;
             }
@@ -279,6 +279,7 @@ public class nuovaRiparazioneController {
                 if(e.getErrorCode() == MYSQL_DUPLICATE_PK){
                     //duplicate primary key
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("ERRORE");
                     alert.setContentText("Sei già registrato, clicca su 'Login con il mio account'");
                     alert.showAndWait();
                 }
@@ -297,17 +298,20 @@ public class nuovaRiparazioneController {
                 | emailCliente.getText().isEmpty() | passwordCliente.getText().isEmpty() | cellCliente.getText().isEmpty())
         {
             Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("ERRORE");
             alert.setContentText("Attenzione tutti i campi sono obbligatori");
             alert.showAndWait();
             return false;
         } else if (cfCliente.getText().length() > 16 | cfCliente.getText().length() < 16) {
 
             Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("ERRORE");
             alert.setContentText("Attenzione controlla che il codice fiscale sia esatto");
             alert.showAndWait();
             return false;
         } else if (!emailCliente.getText().contains("@")){
             Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("ERRORE");
             alert.setContentText("Attenzione controlla l'email inserita");
             alert.showAndWait();
             return false;

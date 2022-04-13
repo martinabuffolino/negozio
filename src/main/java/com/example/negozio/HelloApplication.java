@@ -14,7 +14,7 @@ public class HelloApplication extends Application {
     private static Stage window;
 
     @Override
-    public void start(Stage primaryStage) throws IOException, SQLException, ClassNotFoundException {
+    public void start(Stage primaryStage) throws IOException {
 
 
         window = primaryStage;

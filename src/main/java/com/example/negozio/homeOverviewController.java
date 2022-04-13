@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -51,7 +50,7 @@ public class homeOverviewController {
 
 
     @FXML
-    void handleSostienici(ActionEvent event) throws IOException {
+    public void handleSostienici(ActionEvent event) throws IOException {
 
         root = FXMLLoader.load(HelloApplication.class.getResource("recensioneOverview.fxml"));
         HelloApplication.getPrimaryStage().setScene(new Scene(root));
@@ -59,40 +58,59 @@ public class homeOverviewController {
 
 
     @FXML
-    void handleAvanti(ActionEvent event) {
+    public void handleAvanti(ActionEvent event) {
 
         if(nuovaRiparazioneRadioButton.isSelected()) {
             try {
-            System.out.println("Crea Nuova Riprazione");
-            root = FXMLLoader.load(HelloApplication.class.getResource("nuovaRiparazione.fxml"));
-            HelloApplication.getPrimaryStage().setScene(new Scene(root));
+                System.out.println("Crea Nuova Riprazione");
+                root = FXMLLoader.load(HelloApplication.class.getResource("nuovaRiparazione.fxml"));
+                HelloApplication.getPrimaryStage().setScene(new Scene(root));
 
-            nuovaRiparazioneController riparazione = new nuovaRiparazioneController();
-            riparazione.inizializzaNuovaRiparazione();
-            HelloApplication.getPrimaryStage().setScene(new Scene(root));
-            HelloApplication.getPrimaryStage().show();
+                nuovaRiparazioneController riparazione = new nuovaRiparazioneController();
+                riparazione.inizializzaNuovaRiparazione();
+                HelloApplication.getPrimaryStage().setScene(new Scene(root));
+                HelloApplication.getPrimaryStage().show();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
 
         if(controlloRiparazioneRadioButton.isSelected()) {
-            System.out.println("Controlla Stato Riparazione");
-            controlloStatoRiparazioneController controlloRiparazione = new controlloStatoRiparazioneController();
-            controlloRiparazione.inizializzaControlloStatoRiparazione();
+            try {
+                System.out.println("Controlla Stato Riparazione");
+                root = FXMLLoader.load(HelloApplication.class.getResource("controlloStatoRiparazione.fxml"));
+                HelloApplication.getPrimaryStage().setScene(new Scene(root));
 
+                controlloStatoRiparazioneController controlloRiparazione = new controlloStatoRiparazioneController();
+                controlloRiparazione.inizializzaControlloStatoRiparazione();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-
         if(acquistoRadioButton.isSelected()) {
-            System.out.println("Catalogo Accessori");
-            catalogoOverviewController accessori = new catalogoOverviewController();
-            accessori.inizializzaCatalogoOverview();
+            try {
+                System.out.println("Catalogo Accessori");
+                root = FXMLLoader.load(HelloApplication.class.getResource("catalogoOverview.fxml"));
+                HelloApplication.getPrimaryStage().setScene(new Scene(root));
+
+                catalogoOverviewController accessori = new catalogoOverviewController();
+                accessori.inizializzaCatalogoOverview();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         if(tecnicoRadioButton.isSelected()) {
-            System.out.println("Login Tecnico");
-            tecnicoOverviewController tecnico = new tecnicoOverviewController();
-            tecnico.inizializzaTecnicoOverviwe();
+            try {
+                System.out.println("Login Tecnico");
+                root = FXMLLoader.load(HelloApplication.class.getResource("tecnicoOverview.fxml"));
+                HelloApplication.getPrimaryStage().setScene(new Scene(root));
+
+                tecnicoOverviewController tecnico = new tecnicoOverviewController();
+                tecnico.inizializzaTecnicoOverviwe();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

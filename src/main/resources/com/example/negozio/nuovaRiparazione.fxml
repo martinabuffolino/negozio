@@ -12,7 +12,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
             minHeight="-Infinity" minWidth="-Infinity"
             prefHeight="550.0" prefWidth="450.0"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.negozio.nuovaRiparazioneController">
+            xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.negozio.nuovaRiparazioneController">
    <children>
       <ImageView fitHeight="550.0" fitWidth="450.0">
          <image>
