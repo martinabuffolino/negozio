@@ -39,12 +39,8 @@ public class recensioneOverviewController {
     @FXML
     Parent root;
 
-    public recensioneOverviewController() {
-
-    }
-
     @FXML
-    private void initialize() {
+    public void inizializzaRecensioneOverview() {
         loginTwitterRadioButton.setToggleGroup(rbGroup);
         loginFacebookRadioButton.setToggleGroup(rbGroup);
     }
@@ -78,5 +74,4 @@ public class recensioneOverviewController {
 
         }
     }
-
 }

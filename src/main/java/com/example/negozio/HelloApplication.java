@@ -22,7 +22,7 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("homeOverview.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
-        window.setTitle("MSM - Negozio Smartphone");
+        window.setTitle("MSM TECH - Negozio Smartphone");
         window.setScene(scene);
         window.show();
 

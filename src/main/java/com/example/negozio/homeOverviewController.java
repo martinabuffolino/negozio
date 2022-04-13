@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.MouseEvent;
 
 public class homeOverviewController {
 
@@ -19,6 +20,9 @@ public class homeOverviewController {
 
     @FXML
     private URL location;
+
+    @FXML // fx:id="feedbackRadioButton"
+    private RadioButton feedbackRadioButton;
 
     @FXML // fx:id="nuovaRiparazioneRadioButton"
     private RadioButton nuovaRiparazioneRadioButton;
@@ -47,15 +51,6 @@ public class homeOverviewController {
     public homeOverviewController() {
 
     }
-
-
-    @FXML
-    public void handleSostienici(ActionEvent event) throws IOException {
-
-        root = FXMLLoader.load(HelloApplication.class.getResource("recensioneOverview.fxml"));
-        HelloApplication.getPrimaryStage().setScene(new Scene(root));
-    }
-
 
     @FXML
     public void handleAvanti(ActionEvent event) {
@@ -108,6 +103,21 @@ public class homeOverviewController {
 
                 tecnicoOverviewController tecnico = new tecnicoOverviewController();
                 tecnico.inizializzaTecnicoOverviwe();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(feedbackRadioButton.isSelected()) {
+            try {
+                System.out.println("Feedback");
+                root = FXMLLoader.load(HelloApplication.class.getResource("recensioneOverview.fxml"));
+                HelloApplication.getPrimaryStage().setScene(new Scene(root));
+
+                recensioneOverviewController recensione = new recensioneOverviewController();
+                recensione.inizializzaRecensioneOverview();
+                HelloApplication.getPrimaryStage().setScene(new Scene(root));
+                HelloApplication.getPrimaryStage().show();
             } catch (IOException e) {
                 e.printStackTrace();
             }
