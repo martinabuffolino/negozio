@@ -170,7 +170,7 @@ public class nuovaRiparazioneController {
                     cliente.setCellulare(resultLogin.getString("CELLULARE"));
 
                     try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("registraneSmartphone.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("registrazioneSmartphone.fxml"));
 
                         Parent root = (Parent) loader.load();
 

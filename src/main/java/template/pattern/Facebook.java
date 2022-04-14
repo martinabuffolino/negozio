@@ -7,7 +7,7 @@ public class Facebook extends Template {
     }
 
     public boolean logIn(String userName, String password) {
-        this.userName=userName;
+        this.userName = userName;
         this.password = password;
 
         simulateNetworkLatency();

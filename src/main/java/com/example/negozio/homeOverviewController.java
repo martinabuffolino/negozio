@@ -100,7 +100,6 @@ public class homeOverviewController {
                 System.out.println("Login Tecnico");
                 root = FXMLLoader.load(HelloApplication.class.getResource("tecnicoOverview.fxml"));
                 HelloApplication.getPrimaryStage().setScene(new Scene(root));
-
                 tecnicoOverviewController tecnico = new tecnicoOverviewController();
                 tecnico.inizializzaTecnicoOverviwe();
             } catch (IOException e) {
