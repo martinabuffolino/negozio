@@ -77,7 +77,7 @@ public class facebookController {
 
     //  Gestione login
     @FXML
-    void handleLogin() throws IOException, SQLException {
+    void handleLogin() throws IOException {
 
         root = FXMLLoader.load(HelloApplication.class.getResource("facebookMessaggio.fxml"));
         HelloApplication.getPrimaryStage().setScene(new Scene(root));

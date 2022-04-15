@@ -21,7 +21,7 @@ public class DataBaseNegozioConnect {
 
     private static Connection connection = null;
 
-    private static final String connStr = "jdbc:mysql://localhost/negozio?user=root&password=";
+    private static final String connStr ="jdbc:mysql://localhost:3306/negozio?user=root&password=Programmazione.3";
 
     public static int risultatoQuery;
 

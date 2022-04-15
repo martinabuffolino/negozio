@@ -18,7 +18,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import java.awt.event.ActionEvent;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 import static java.lang.Integer.parseInt;
@@ -43,8 +43,7 @@ public class tabellaStatoController {
     @FXML // fx:id="tabSmartphone"
     private TableColumn<tabellaStatoParametri, String> tabSmartphone;
 
-    @FXML // fx:id="tabTipo"
-    private TableColumn<tabellaStatoParametri, String> tabTipo;
+
 
     @FXML // fx:id="updateStatus"
     private Button updateStatus;
@@ -57,14 +56,13 @@ public class tabellaStatoController {
     public Riparazione riparazione = new Riparazione();
 
     public String selectedCodRip;
-    public String selectedTipoRip;
     public String selectedStato;
     public String selectedSmartphone;
 
     Parent root;
     ObservableList<tabellaStatoParametri> obList = FXCollections.observableArrayList();;
 
-    //function che seleziona il codice tecnico
+    // Gestione metodo che stampa le riparazioni del tecnico che fa fatto il login
     public void myFunction(Tecnico selectedTecnico) {
 
         tecnico = selectedTecnico;
@@ -77,15 +75,18 @@ public class tabellaStatoController {
     }
 
     private void stampaTabella(int codice) throws SQLException{
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/negozio?user=root&password=");
         /*	Con getConnection il Driver Manager cerca il driver opportuno fra quelli caricati
             URL JDBC ha il formato -> jdbc:subprotocol:subname
             dove il subprotocol specifica il driver e subname specifica il DB vero e proprio
          */
+
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/negozio", "root", "Programmazione.3");
+
         Statement stmt = connection.createStatement();
+
         ResultSet result = null;
 
-        String query = "SELECT * FROM RIPARAZIONE WHERE CODTECNICO = " + codice + ";";
+        String query = "SELECT `riparazione`.`CODRIPARAZIONE`,`riparazione`.`STATO`,`riparazione`.`SERIALE`, FROM `negozio`.`riparazione` WHERE `riparazione`.`CODTECNICO` = " + codice + ";";
         try {
             System.out.println("Eseguo statement: " + query);
             result = stmt.executeQuery(query);
@@ -101,14 +102,12 @@ public class tabellaStatoController {
                 while (result.next())
                 {
                     obList.add(new tabellaStatoParametri(
-                            result.getString("NUMRIPARAZIONE"),
-                            result.getString("TIPORIPARAZIONE"),
+                            result.getString("CODRIPARAZIONE"),
                             result.getString("STATO"),
                             result.getString("SERIALE")));
 
                     // setCellValueFactory: usato per determinare quale campo all’interno dell’oggetto dovrebbe essere usato per quella colonna
                     tabCodRip.setCellValueFactory(new PropertyValueFactory<>("codRiparazione"));
-                    tabTipo.setCellValueFactory(new PropertyValueFactory<>("tipoRiparazione"));
                     tabStato.setCellValueFactory(new PropertyValueFactory<>("statoRiparazione"));
                     tabSmartphone.setCellValueFactory(new PropertyValueFactory<>("seriale"));
 
@@ -119,7 +118,6 @@ public class tabellaStatoController {
                         @Override
                         public void handle(MouseEvent event) {
                             selectedCodRip = smartphoneTab.getSelectionModel().getSelectedItem().getCodRiparazione();
-                            selectedTipoRip = smartphoneTab.getSelectionModel().getSelectedItem().getTipoRiparazione();
                             selectedStato = smartphoneTab.getSelectionModel().getSelectedItem().getStatoRiparazione();
                             selectedSmartphone = smartphoneTab.getSelectionModel().getSelectedItem().getSerialeSmartphone();
                         }
@@ -143,7 +141,6 @@ public class tabellaStatoController {
         System.out.println("Stampo dati riparazione: ");
 
         riparazione.setCodRiparazione(parseInt(selectedCodRip));
-        riparazione.setTipoRiparazione(selectedTipoRip);
         riparazione.setSerialeSmartphone(selectedSmartphone);
 
         try {

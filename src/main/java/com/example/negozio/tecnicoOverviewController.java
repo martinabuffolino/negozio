@@ -5,8 +5,8 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import application.Tecnico;
 import javafx.fxml.FXML;
@@ -71,13 +71,6 @@ public class tecnicoOverviewController {
     }
 
     @FXML
-    public void handleBackButton() throws IOException {
-
-        root = FXMLLoader.load(HelloApplication.class.getResource("homeOverview.fxml"));
-        HelloApplication.getPrimaryStage().setScene(new Scene(root));
-    }
-
-    @FXML
     public void handleLoginTecnico() throws IOException, SQLException {
 
         if (validateCrendentials()) {
@@ -87,15 +80,14 @@ public class tecnicoOverviewController {
             try {
                 loginTecnico(selectedCodice);
                 System.out.println("Accesso eseguito come tecnico");
+
                 try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("tabellaStato.fxml"));
+                    root = FXMLLoader.load(HelloApplication.class.getResource("tabellaStato.fxml"));
+                    HelloApplication.getPrimaryStage().setScene(new Scene(root));
 
-                    Parent root = (Parent) loader.load();
-
-                    tabellaStatoController tecnico = loader.getController();
+                    tabellaStatoController tecnico = new tabellaStatoController();
                     tecnico.myFunction(selectedTecnico);
 
-                    HelloApplication.getPrimaryStage().setScene(new Scene(root));
                     HelloApplication.getPrimaryStage().show();
 
                 } catch (IOException e) {
@@ -116,13 +108,25 @@ public class tecnicoOverviewController {
         }
     }
 
+    //  Gestione button per ritornare alla schermata principale
+    @FXML
+    public void handleBackButton() throws IOException {
+
+        root = FXMLLoader.load(HelloApplication.class.getResource("homeOverview.fxml"));
+        HelloApplication.getPrimaryStage().setScene(new Scene(root));
+    }
+
     // Gestione login tecnico registrato nel database
     private void loginTecnico(int codiceTecnico) throws Exception {
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/negozio?user=root&password=");
+
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/negozio", "root", "Programmazione.3");
+
         Statement stmt = connection.createStatement();
+
         ResultSet result = null;
 
-        String query = "SELECT * FROM TECNICO WHERE CODICETECNICO = " + codiceTecnico + ";";
+        String query = "SELECT * FROM `negozio`.`tecnico`WHERE CODICETECNICO = "+ codiceTecnico +";";
+
 
         try {
             System.out.println("Eseguo stmt: "+ query);

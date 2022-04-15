@@ -8,13 +8,11 @@ package com.example.negozio;
 
 public class tabellaStatoParametri {
     String codRiparazione;
-    String tipoRiparazione;
     String statoRiparazione;
     String serialeSmartphone;
 
-    public tabellaStatoParametri(String codRiparazione, String tipoRiparazione, String statoRiparazione, String serialeSmartphone) {
+    public tabellaStatoParametri(String codRiparazione, String statoRiparazione, String serialeSmartphone) {
         this.codRiparazione = codRiparazione;
-        this.tipoRiparazione = tipoRiparazione;
         this.statoRiparazione = statoRiparazione;
         this.serialeSmartphone = serialeSmartphone;
     }
@@ -29,15 +27,7 @@ public class tabellaStatoParametri {
         return codRiparazione;
     }
 
-    public void setTipoRiparazione(String tipoRiparazione) {
 
-        this.tipoRiparazione = tipoRiparazione;
-    }
-
-    public String getTipoRiparazione() {
-
-        return tipoRiparazione;
-    }
 
     public void setStatoRiparazione(String statoRiparazione) {
 

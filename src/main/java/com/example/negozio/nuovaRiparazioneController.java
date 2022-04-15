@@ -92,7 +92,7 @@ public class nuovaRiparazioneController {
     }
 
 
-    // Gestione login cliente registrato nel database
+    // Gestione login cliente già registrato nel database
     @FXML
     public void loginCliente(MouseEvent mouseEvent) {
 
@@ -149,16 +149,18 @@ public class nuovaRiparazioneController {
         System.out.println("Username=" + usernamePassword.getKey() + ", Password=" + usernamePassword.getValue());
 
         if (checkLoginCliente(usernamePassword.getKey(),usernamePassword.getValue())){
-            System.out.println("Login eseguito");
+
 
             try {
 
-                Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/negozio?user=root&password=");
-                Statement statement = connection.createStatement();
+                Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/negozio", "root", "Programmazione.3");
+
+                Statement stmt = connection.createStatement();
+
                 ResultSet resultLogin = null;
 
-                String sql = "SELECT * FROM CLIENTE WHERE EMAIL = '" + usernamePassword.getKey() + "';";
-                resultLogin = statement.executeQuery(sql);
+                String sql = "SELECT * FROM `negozio`.`cliente` WHERE EMAIL = '" + usernamePassword.getKey() + "';";
+                resultLogin = stmt.executeQuery(sql);
 
                 if(resultLogin.next()) {
 
@@ -170,14 +172,13 @@ public class nuovaRiparazioneController {
                     cliente.setCellulare(resultLogin.getString("CELLULARE"));
 
                     try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("registrazioneSmartphone.fxml"));
 
-                        Parent root = (Parent) loader.load();
+                        root = FXMLLoader.load(HelloApplication.class.getResource("registrazioneSmartphone.fxml"));
+                        HelloApplication.getPrimaryStage().setScene(new Scene(root));
 
-                        registrazioneSmartphoneController registra = loader.getController();
+                        registrazioneSmartphoneController registra = new registrazioneSmartphoneController();
                         registra.myFunction(cliente);
 
-                        HelloApplication.getPrimaryStage().setScene(new Scene(root));
                         HelloApplication.getPrimaryStage().show();
 
                         System.out.println(cliente.getCF());
@@ -190,7 +191,7 @@ public class nuovaRiparazioneController {
             catch (SQLException e) {
                 e.printStackTrace();
             }
-        }
+        }System.out.println("Login eseguito");
     });
     }
 
@@ -198,12 +199,14 @@ public class nuovaRiparazioneController {
     private boolean checkLoginCliente(String username, String password){
 
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/negozio?user=root&password=");
-            Statement statement = connection.createStatement();
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/negozio", "root", "Programmazione.3");
+
+            Statement stmt = connection.createStatement();
+
             ResultSet result = null;
 
-            String sql = "SELECT PASSWORD FROM CLIENTE WHERE EMAIL = '" + username + "';";
-            result = statement.executeQuery(sql);
+            String sql = "SELECT `cliente`.`PASSWORD` FROM `negozio`.`cliente` WHERE EMAIL = " + username + ";";
+            result = stmt.executeQuery(sql);
 
             if (result.next()) {
                 String passwordEmail = result.getString("PASSWORD");
