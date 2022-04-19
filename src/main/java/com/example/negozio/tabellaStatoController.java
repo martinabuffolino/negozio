@@ -37,13 +37,14 @@ public class tabellaStatoController {
     @FXML // fx:id="tabCodRip"
     private TableColumn<tabellaStatoParametri, String> tabCodRip;
 
+    @FXML
+    private TableColumn <tabellaStatoParametri,String> tabTipo;
+
     @FXML // fx:id="tabStato"
     private TableColumn<tabellaStatoParametri, String> tabStato;
 
     @FXML // fx:id="tabSmartphone"
     private TableColumn<tabellaStatoParametri, String> tabSmartphone;
-
-
 
     @FXML // fx:id="updateStatus"
     private Button updateStatus;
@@ -52,10 +53,10 @@ public class tabellaStatoController {
     private Button backButton;
 
     private Tecnico tecnico = new Tecnico();
-
     public Riparazione riparazione = new Riparazione();
 
     public String selectedCodRip;
+    public String selectedTipoRip;
     public String selectedStato;
     public String selectedSmartphone;
 
@@ -74,7 +75,7 @@ public class tabellaStatoController {
         }
     }
 
-    private void stampaTabella(int codice) throws SQLException{
+    private void stampaTabella(int codTecnico) throws SQLException{
         /*	Con getConnection il Driver Manager cerca il driver opportuno fra quelli caricati
             URL JDBC ha il formato -> jdbc:subprotocol:subname
             dove il subprotocol specifica il driver e subname specifica il DB vero e proprio
@@ -86,7 +87,7 @@ public class tabellaStatoController {
 
         ResultSet result = null;
 
-        String query = "SELECT `riparazione`.`CODRIPARAZIONE`,`riparazione`.`STATO`,`riparazione`.`SERIALE`, FROM `negozio`.`riparazione` WHERE `riparazione`.`CODTECNICO` = " + codice + ";";
+        String query = "SELECT CODRIPARAZIONE, TIPORIPARAZIONE, STATO, SERIALE FROM riparazione WHERE CODTECNICO ='codTecnico';";
         try {
             System.out.println("Eseguo statement: " + query);
             result = stmt.executeQuery(query);
@@ -101,13 +102,14 @@ public class tabellaStatoController {
             if (result != null){
                 while (result.next())
                 {
-                    obList.add(new tabellaStatoParametri(
-                            result.getString("CODRIPARAZIONE"),
+                    obList.add(new tabellaStatoParametri( result.getString("CODRIPARAZIONE"),
+                            result.getString("TIPORIPARAZIONE"),
                             result.getString("STATO"),
                             result.getString("SERIALE")));
 
                     // setCellValueFactory: usato per determinare quale campo all’interno dell’oggetto dovrebbe essere usato per quella colonna
                     tabCodRip.setCellValueFactory(new PropertyValueFactory<>("codRiparazione"));
+                    tabTipo.setCellValueFactory(new PropertyValueFactory<>("tipoRiparazione"));
                     tabStato.setCellValueFactory(new PropertyValueFactory<>("statoRiparazione"));
                     tabSmartphone.setCellValueFactory(new PropertyValueFactory<>("seriale"));
 
@@ -118,6 +120,7 @@ public class tabellaStatoController {
                         @Override
                         public void handle(MouseEvent event) {
                             selectedCodRip = smartphoneTab.getSelectionModel().getSelectedItem().getCodRiparazione();
+                            selectedTipoRip = smartphoneTab.getSelectionModel().getSelectedItem().getTipoRiparazione();
                             selectedStato = smartphoneTab.getSelectionModel().getSelectedItem().getStatoRiparazione();
                             selectedSmartphone = smartphoneTab.getSelectionModel().getSelectedItem().getSerialeSmartphone();
                         }
@@ -128,9 +131,9 @@ public class tabellaStatoController {
     }
 
     @FXML	//	Gestion backButton per tornare indietro
-    public void handleBackButton() throws SQLException, IOException {
+    public void handleBackButton() throws IOException {
 
-        root = FXMLLoader.load(HelloApplication.class.getResource("tabellaStato.fxml"));
+        root = FXMLLoader.load(HelloApplication.class.getResource("homeOverview.fxml"));
         HelloApplication.getPrimaryStage().setScene(new Scene(root));
 
     }
@@ -141,6 +144,7 @@ public class tabellaStatoController {
         System.out.println("Stampo dati riparazione: ");
 
         riparazione.setCodRiparazione(parseInt(selectedCodRip));
+        riparazione.setTipoRiparazione(selectedTipoRip);
         riparazione.setSerialeSmartphone(selectedSmartphone);
 
         try {
